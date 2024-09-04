@@ -25,7 +25,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push 571600829424.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-docker:latest
+      - docker push 571600829424.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-docker:$IMAGE_TAG
         # docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo write definitions file...
       - printf '[{"name":"exp-code-pipeline","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
